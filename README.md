@@ -29,6 +29,8 @@
         <sup>*</sup>Equal Contribution &nbsp;&nbsp;
         <sup>†</sup>Corresponding Authors
     </p>
+    <a href='https://sysu-star.github.io/FC-Hetero/'><img src='https://img.shields.io/badge/Project_Page-FC_Hetero-green' alt='Project Page'></a>
+    <a href="https://www.bilibili.com/video/BV1G1421Q79m/"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
 </div>
 
 ## System Overview
