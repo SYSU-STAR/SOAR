@@ -3,7 +3,7 @@
     <strong>Submitted to IROS 2024</strong>
     <br>
         <a href="http://sysu-star.com/people/" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
-        <a href="https://chen-albert-feng.github.io/AlbertFeng.github.io/" target="_blank">Chen
+        <a href="https://chen-albert-feng.github.io/AlbertFeng.github.io" target="_blank">Chen
             Feng</a><sup>2,*</sup>,
         <a href="http://sysu-star.com/people/" target="_blank">Zengzhi Li</a><sup>1,4</sup>,
         <a href="http://sysu-star.com/people/" target="_blank">Guiyong Zheng</a><sup>1</sup>,
