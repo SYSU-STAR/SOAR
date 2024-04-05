@@ -18,6 +18,17 @@
 </head>
 
 
+<style>
+  .text-container {
+    width: 85%;
+    /* 设置容器宽度为80% */
+    margin: 0 auto;
+    /* 水平居中容器 */
+    text-align: justify;
+    /* 两端对齐文本 */
+  }
+</style>
+
 <!-- cover -->
 <section>
   <div class="jumbotron text-center mt-0">
@@ -76,24 +87,20 @@
                   role="button" target="_blank">
                   <i class="fa fa-video-camera"></i> Video </a> </p>
             </div>
+            <br>
+            <br>
+            <br>
+            <div class="text-container text-center">
+              <video autoplay muted controls style="max-width: 80%; height: auto;" id="all_pisa_video">
+                <source src="assets/videos/start.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<style>
-  .text-container {
-    width: 75%;
-    /* 设置容器宽度为80% */
-    margin: 0 auto;
-    /* 水平居中容器 */
-    text-align: justify;
-    /* 两端对齐文本 */
-  }
-</style>
 
 <!-- Abstract -->
 <section>
@@ -117,9 +124,7 @@
             performance of FC-Hetero compared with classical and state-of-the-art methods.
           </div>
           <br>
-          <!-- <img src="assets/imgs/top.jpg" alt="Top" width="65%"> -->
-          <img src="https://raw.githubusercontent.com/SYSU-STAR/FC-Hetero/gh_pages/assets/imgs/top.jpg" alt="Top"
-            width="65%">
+          <img src="assets/imgs/top.jpg" alt="Top" width="65%">
         </div>
       </div>
     </div>
@@ -148,23 +153,41 @@
 <br>
 
 <!-- Method Show -->
-<!-- <section>
+<section>
   <div class="container">
     <div class="warp-container">
       <div class="row">
         <div class="col-12 text-center">
           <p class="text-center">
-            <h3>Method</h3>
-            <hr style="margin-top:0px">
+          <h3>Method Details</h3>
+          <hr style="margin-top:0px">
+          <h4>Surface Frontier Based Exploration with Large-scale Perception LiDAR</h4>
           <div class="text-container">
-            
+            <video autoplay muted controls style="max-width: 100%; height: auto;" id="expl_pisa_video">
+              <source src="assets/videos/expl_pisa.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h4>Incremental Viewpoint Generation</h4>
+          <div class="text-container">
+            <video autoplay muted controls style="max-width: 100%; height: auto;" id="incremental_pisa_video">
+              <source src="assets/videos/incremental_pisa.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h4>Overall</h4>
+          <div class="text-container">
+            <video autoplay muted controls style="max-width: 100%; height: auto;" id="all_pisa_video">
+              <source src="assets/videos/all_pisa.mp4" type="video/mp4">
+            </video>
           </div>
           </p>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
+
+
+
 
 <!-- TODO -->
 <section>
@@ -173,8 +196,8 @@
       <div class="row">
         <div class="col-12 text-center">
           <p class="text-center">
-            <h3>TODO</h3>
-            <hr style="margin-top:0px">
+          <h3>TODO</h3>
+          <hr style="margin-top:0px">
           <div class="text-container">
             In the coming days, we'll be unveiling additional technical details and more demos of various scenarios.
             Stay tuned for updates on our website!
