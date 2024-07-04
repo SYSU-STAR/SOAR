@@ -1,6 +1,6 @@
 <div align="center">
     <h2>FC-Hetero: Fast and Autonomous Aerial Reconstruction Using a LiDAR-Visual Heterogeneous Multi-UAV System</h2>
-    <strong>Submitted to International Conference on Intelligent Robots and Systems(IROS), 2024</strong>
+    <strong>IROS 2024 Oral</strong>
     <br>
         <a href="http://sysu-star.com/people/" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
         <a href="https://chen-albert-feng.github.io/AlbertFeng.github.io" target="_blank">Chen
