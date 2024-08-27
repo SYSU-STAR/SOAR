@@ -1,5 +1,5 @@
 <div align="center">
-    <h2>FC-Hetero: Fast and Autonomous Aerial Reconstruction Using a LiDAR-Visual Heterogeneous Multi-UAV System</h2>
+    <h2>SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction</h2>
     <strong>IROS 2024 Oral</strong>
     <br>
         <a href="http://sysu-star.com/people/" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
@@ -29,17 +29,17 @@
         <sup>*</sup>Equal Contribution &nbsp;&nbsp;
         <sup>†</sup>Corresponding Authors
     </p>
-    <a href='https://sysu-star.github.io/FC-Hetero/'><img src='https://img.shields.io/badge/Project_Page-FC_Hetero-green' alt='Project Page'></a>
+    <a href='https://sysu-star.github.io/SOAR'><img src='https://img.shields.io/badge/Project_Page-SOAR-green' alt='Project Page'></a>
     <a href="https://www.bilibili.com/video/BV1G1421Q79m/"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
 </div>
 
 ## System Overview
 
-<div align=center><img src="img/sys.png" height=85% width=85% ></div>
+<div align=center><img src="img/pipeline.png" height=85% width=85% ></div>
 
 ## Todo
 
-For **more information**, please pay more attention to our [**project homepage**](https://sysu-star.github.io/FC-Hetero/) (\*^▽^\*).
+For **more information**, please pay more attention to our [**project homepage**](https://sysu-star.github.io/SOAR) (\*^▽^\*).
 
 
 Code will come soon~~~
