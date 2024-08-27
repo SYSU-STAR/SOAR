@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>FC-Hetero: Fast and Autonomous Aerial Reconstruction Using a LiDAR-Visual Heterogeneous Multi-UAV System
+  <title>SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction
   </title>
   <!-- Bootstrap -->
   <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -59,7 +59,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>FC-Hetero: Fast and Autonomous Aerial Reconstruction Using a LiDAR-Visual Heterogeneous Multi-UAV System
+          <h2>SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction
           </h2>
           <h5 style="color:#5a6268;">IROS 2024 Oral
           </h5>
@@ -99,7 +99,7 @@
                   <i class="fa fa-file"></i> Paper</a> </p>
             </div>
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/SYSU-STAR/FC-Hetero"
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/SYSU-STAR/SOAR"
                   role="button" target="_blank">
                   <i class="fa fa-github-alt"></i> Code </a> </p>
             </div>
@@ -127,7 +127,7 @@
               </div>
               <div class="columns is-centered has-text-centered">
                 <p style="margin-top: 5px; text-align: center; margin-bottom: -3%;">
-                  Two demonstrations of FC-Hetero. (The left scene is Pisa Cathedral, and the right is Sydney Opera
+                  Two demonstrations of SOAR. (The left scene is Pisa Cathedral, and the right is Sydney Opera
                   House.)
                 </p>
               </div>
@@ -148,17 +148,7 @@
           <h1>Abstract</h1>
           <hr style="margin-top:0px">
           <div class="text-container">
-            Unmanned Aerial Vehicles (UAVs) have gained significant popularity in scene reconstruction. In this paper,
-            we introduce FC-Hetero, a LiDAR-Visual heterogeneous multi-UAV system designed specifically for fast aerial
-            reconstruction in complex scenes. Our system comprises an explorer equipped with a LiDAR sensor boasting a
-            large field-of-view (FoV), alongside photographers equipped with cameras. To ensure rapid acquisition of the
-            scene's surface geometry, we employ a surface frontier-based exploration strategy for the explorer. As the
-            surface is progressively explored, we identify the uncovered areas and generate viewpoints incrementally.
-            These viewpoints are then assigned to photographers using a Consistent Multiple Depot Multiple Traveling
-            Salesman Problem (Consistent-MDMTSP) approach, which optimizes scanning efficiency and guarantees task
-            consistency. Finally, photographers utilize the assigned viewpoints to determine optimal coverage paths for
-            acquiring images. We present extensive benchmarks in the realistic simulator, which validates the
-            performance of FC-Hetero compared with classical and state-of-the-art methods.
+            Unmanned Aerial Vehicles (UAVs) have gained significant popularity in scene reconstruction. This paper presents SOAR, a LiDAR-Visual heterogeneous multi-UAV system specifically designed for efficient reconstruction of complex environments. Our system comprises a LiDAR-equipped explorer with a large field-of-view (FoV), alongside photographers equipped with cameras. To ensure rapid acquisition of the scene's surface geometry, we employ a surface frontier-based exploration strategy for the explorer. As the surface is progressively explored, we identify the uncovered areas and generate viewpoints incrementally. These viewpoints are then assigned to photographers through solving a Consistent Multiple Depot Multiple Traveling Salesman Problem (Consistent-MDMTSP), which optimizes scanning efficiency and guarantees task consistency. Finally, photographers utilize the assigned viewpoints to determine optimal coverage paths for acquiring images. We present extensive benchmarks in the realistic simulator, which validates the performance of SOAR compared with classical and state-of-the-art methods.
           </div>
         </div>
       </div>
@@ -176,7 +166,7 @@
         <div class="col-12 text-center">
           <h1>System Overview</h1>
           <hr style="margin-top:0px">
-          <img src="assets/imgs/FC_Hetero_pipeline.png" alt="Top" width="90%">
+          <img src="assets/imgs/pipeline.png" alt="Top" width="90%">
         </div>
       </div>
     </div>
