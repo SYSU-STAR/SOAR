@@ -2,19 +2,19 @@
     <h2>SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction</h2>
     <strong>IROS 2024 Oral</strong>
     <br>
-        <a href="http://sysu-star.com/people/" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
+        <a href="http://sysu-star.com/people" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
         <a href="https://chen-albert-feng.github.io/AlbertFeng.github.io" target="_blank">Chen
             Feng</a><sup>2,*</sup>,
-        <a href="http://sysu-star.com/people/" target="_blank">Zengzhi Li</a><sup>1,4</sup>,
-        <a href="http://sysu-star.com/people/" target="_blank">Guiyong Zheng</a><sup>1</sup>,
-        <a href="http://sysu-star.com/people/" target="_blank">Yiming Luo</a><sup>1</sup>,
+        <a href="http://sysu-star.com/people" target="_blank">Zengzhi Li</a><sup>1,4</sup>,
+        <a href="http://sysu-star.com/people" target="_blank">Guiyong Zheng</a><sup>1</sup>,
+        <a href="http://sysu-star.com/people" target="_blank">Yiming Luo</a><sup>1</sup>,
         <br>
         <a href="https://zdh.ncepu.edu.cn/szdw/fjs/2e5352e61fb648aa890d5aaaf1f1447f.htm" target="_blank">Zhu
             Wang</a><sup>4</sup>,
         <a href="https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHOU-Jinni/eejinni"
             target="_blank">Jinni Zhou</a><sup>5</sup>,
-        <a href="https://uav.hkust.edu.hk/group/" target="_blank">Shaojie Shen</a><sup>2</sup>,
-        <a href="http://sysu-star.com/people/" target="_blank">Boyu Zhou</a><sup>1,†</sup>
+        <a href="https://uav.hkust.edu.hk/group" target="_blank">Shaojie Shen</a><sup>2</sup>,
+        <a href="http://sysu-star.com/people" target="_blank">Boyu Zhou</a><sup>1,†</sup>
         <p>
         <h45>
             <sup>1</sup> Sun Yat-Sen University. &nbsp;&nbsp;
