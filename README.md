@@ -29,6 +29,7 @@
         <sup>*</sup>Equal Contribution &nbsp;&nbsp;
         <sup>†</sup>Corresponding Authors
     </p>
+    <a href="https://arxiv.org/abs/2409.02738"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-red"/></a>
     <a href='https://sysu-star.github.io/SOAR'><img src='https://img.shields.io/badge/Project_Page-SOAR-green' alt='Project Page'></a>
     <a href="https://www.bilibili.com/video/BV1G1421Q79m/"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
 </div>
