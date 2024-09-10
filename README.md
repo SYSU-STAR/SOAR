@@ -38,6 +38,19 @@
 
 <div align=center><img src="img/pipeline.png" height=85% width=85% ></div>
 
+## Citation
+
+If you find this work useful in your research, please consider citing:
+
+```bibtex
+@article{zhang2024soar,
+  title={SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction},
+  author={Zhang, Mingjie and Feng, Chen and Li, Zengzhi and Zheng, Guiyong and Luo, Yiming and Wang, Zhu and Zhou, Jinni and Shen, Shaojie and Zhou, Boyu},
+  journal={arXiv preprint arXiv:2409.02738},
+  year={2024}
+}
+```
+
 ## Todo
 
 For **more information**, please pay more attention to our [**project homepage**](https://sysu-star.github.io/SOAR) (\*^▽^\*).
