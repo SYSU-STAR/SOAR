@@ -681,7 +681,8 @@ bool HeterogenousPlannerManager::checkTrajCollision()
 
   while (radius < 6.0 && t_now + fut_t < local_data_->duration_) {
     fut_pt = local_data_->minco_pos_traj_.getPos(t_now + fut_t);
-    if (sdf_map_->getInflateOccupancy(fut_pt) == 1) {
+    if (sdf_map_->getInflateOccupancy(fut_pt) == 1 ||
+        sdf_map_->getOccupancy(fut_pt) == SDFMap::UNKNOWN) {
       std::cout << "collision at: " << fut_pt.transpose() << std::endl;
       return false;
     }
