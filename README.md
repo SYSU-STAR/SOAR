@@ -126,23 +126,7 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 
 ## 🤗 FC-family Works
 
-<<<<<<< HEAD
 #### 1. What is FC-family?
-=======
-## 🤗 FC-family Works
-
-#### 1. What is FC-family?
-
-We aim to develop intelligent perception-centric flight to realize ***F***ast ***C***overage / re***C***onstruction / inspe***C***tion etc.
-
-#### 2. Projects list
-
-* [PredRecon](https://github.com/HKUST-Aerial-Robotics/PredRecon) (ICRA2023): Prediction-boosted Planner for Aerial Reconstruction.
-* [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner) (ICRA2024): Highly Efficient Global Planner for Aerial Coverage.
-* [SOAR](https://github.com/SYSU-STAR/SOAR) (IROS2024): Heterogenous Multi-UAV Planner for Aerial Reconstruction.
-
-## Todo
->>>>>>> 5c5925464828562b99ba1bca21a8d6c8cc6803b1
 
 We aim to develop intelligent perception-centric flight to realize ***F***ast ***C***overage / re***C***onstruction / inspe***C***tion etc.
 
