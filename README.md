@@ -1,5 +1,9 @@
 <div align="center">
-    <h2>SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction</h2>
+    <h1> 
+      <img src="assets/imgs/logo.svg" width="30" height="30" /> SOAR
+    </h1>
+    </h1>
+    <h2>Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction</h2>
     <strong>IROS 2024 Oral</strong>
     <br>
         <a href="http://sysu-star.com/people" target="_blank">Mingjie Zhang</a><sup>1,3,*</sup>,
