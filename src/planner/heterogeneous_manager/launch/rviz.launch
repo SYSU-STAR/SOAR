@@ -1,0 +1,4 @@
+<launch>
+  <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find heterogeneous_manager)/config/hetero.rviz" />
+
+</launch>

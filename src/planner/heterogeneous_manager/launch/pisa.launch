@@ -1,0 +1,124 @@
+<launch>
+  <arg name="map_size_x" default="80.0" />
+  <arg name="map_size_y" default="80.0" />
+  <arg name="map_size_z" default="30.0" />
+  
+  <!-- GPU/CPU version of Marsim -->
+  <arg name="use_gpu" value="false" />
+
+  <arg name="map_name" value="pisa" />
+  
+  <arg name="drone_num" value="4" />
+  <arg name="resolution" default="0.25" />
+  <arg name="lidar_pitch" value="20.0" />
+  <arg name="surface_min_update_time" value="2.0" />
+  <arg name="frozen_surface_min_num" value="20" />
+
+  <group ns="quad_0">
+    <include file="$(find heterogeneous_manager)/launch/single_lidar_uav_exploration.xml">
+      <arg name="drone_id" value="0" />
+      <arg name="drone_num" value="$(arg drone_num)" />
+      <arg name="use_gpu_" value="$(arg use_gpu)" />
+      <arg name="lidar_pitch" value="$(arg lidar_pitch)" />
+
+      <arg name="map_name" value="$(arg map_name)" />
+      <arg name="map_size_x" value="$(arg map_size_x)" />
+      <arg name="map_size_y" value="$(arg map_size_y)" />
+      <arg name="map_size_z" value="$(arg map_size_z)" />
+
+      <arg if="$(eval map_name=='pisa')" name="map_add_boundary" value="1" />
+      <arg if="$(eval map_name=='pisa')" name="init_x" value="-17.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_y" value="8.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_z" value="3.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_yaw" value="0.0" />
+
+      <arg name="max_vel" value="2.5" />
+      <arg name="max_acc" value="2.5" />
+
+      <arg name="surface_min_update_time" value="$(arg surface_min_update_time)" />
+      <arg name="frozen_surface_min_num" value="$(arg frozen_surface_min_num)" />
+
+      <arg name="downsample_resolution" value="$(arg resolution)" />
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <group ns="quad_1">
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
+      <arg name="drone_id" value="1" />
+      <arg name="drone_num" value="$(arg drone_num)" />
+
+      <arg name="map_name" value="$(arg map_name)" />
+      <arg name="map_size_x" value="$(arg map_size_x)" />
+      <arg name="map_size_y" value="$(arg map_size_y)" />
+      <arg name="map_size_z" value="$(arg map_size_z)" />
+
+      <arg if="$(eval map_name=='pisa')" name="init_x" value="-13.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_y" value="3.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_z" value="2.6" />
+      <arg if="$(eval map_name=='pisa')" name="init_yaw" value="0.0" />
+
+      <arg name="max_vel" value="1.0" />
+      <arg name="max_acc" value="1.0" />
+
+      <arg name="downsample_resolution" value="$(arg resolution)" />
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <group ns="quad_2">
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
+      <arg name="drone_id" value="2" />
+      <arg name="drone_num" value="$(arg drone_num)" />
+
+      <arg name="map_name" value="$(arg map_name)" />
+      <arg name="map_size_x" value="$(arg map_size_x)" />
+      <arg name="map_size_y" value="$(arg map_size_y)" />
+      <arg name="map_size_z" value="$(arg map_size_z)" />
+
+      <arg if="$(eval map_name=='pisa')" name="init_x" value="-13.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_y" value="8.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_z" value="2.6" />
+      <arg if="$(eval map_name=='pisa')" name="init_yaw" value="0.0" />
+
+      <arg name="max_vel" value="1.0" />
+      <arg name="max_acc" value="1.0" />
+
+      <arg name="downsample_resolution" value="$(arg resolution)" />
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <group ns="quad_3">
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
+      <arg name="drone_id" value="3" />
+      <arg name="drone_num" value="$(arg drone_num)" />
+
+      <arg name="map_name" value="$(arg map_name)" />
+      <arg name="map_size_x" value="$(arg map_size_x)" />
+      <arg name="map_size_y" value="$(arg map_size_y)" />
+      <arg name="map_size_z" value="$(arg map_size_z)" />
+
+      <arg if="$(eval map_name=='pisa')" name="init_x" value="-13.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_y" value="13.0" />
+      <arg if="$(eval map_name=='pisa')" name="init_z" value="2.6" />
+      <arg if="$(eval map_name=='pisa')" name="init_yaw" value="0.0" />
+
+      <arg name="max_vel" value="1.0" />
+      <arg name="max_acc" value="1.0" />
+
+      <arg name="downsample_resolution" value="$(arg resolution)" />
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <!-- <node name="record_bag" pkg="rosbag" type="record" output="screen" args="-o $(find heterogeneous_manager)/output/$(arg map_name)
+  /quad_0/sdf_map/occupancy_all /quad_1/sdf_map/seen /quad_2/sdf_map/seen /quad_3/sdf_map/seen 
+  /quad_0/odom_visualization/robot /quad_1/odom_visualization/robot /quad_2/odom_visualization/robot /quad_3/odom_visualization/robot 
+  /quad_0/planning/position_cmd_vis /quad_1/planning/position_cmd_vis /quad_2/planning/position_cmd_vis /quad_3/planning/position_cmd_vis 
+  /quad_0/planning/travel_traj /quad_1/planning/travel_traj /quad_2/planning/travel_traj /quad_3/planning/travel_traj
+  /map_generator/global_cloud /quad_0/planning_vis/text
+  /sdf_map/global /quad_0/sdf_map/expl /quad_0/planning_vis/frontier
+  /quad_0/planning_vis/updated_viewpoints /quad_1/planning_vis/assigned_viewpoints /quad_2/planning_vis/assigned_viewpoints /quad_3/planning_vis/assigned_viewpoints" /> -->
+
+</launch>

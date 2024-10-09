@@ -1,0 +1,59 @@
+<launch>
+    <arg name="drone_id"/>
+    <arg name="uav_num_"/>
+    <arg name="init_x_"/>
+    <arg name="init_y_"/>
+    <arg name="init_z_"/>
+    <arg name="init_yaw"/>
+    <arg name="odom_topic"/>
+    <arg name="map_name_"/>
+    <arg name="downsample_resolution_"/>
+    <arg name="use_gpu"/>
+    <arg name="use_uav_extra_model_"/>
+
+    <node pkg="mars_drone_sim" name="quadrotor_dynamics" type="quadrotor_dynamics_node" output="log">
+        <remap from="~odom" to="$(arg odom_topic)"/>
+        <remap from="~cmd_RPM" to="cmdRPM"/>
+        <remap from="~imu" to="imu"/>
+        <param name="mass" value="1.9"/>
+        <param name="simulation_rate" value="200"/>
+        <param name="quadrotor_name" value="quad_$(arg drone_id)"/>
+        <param name="init_state_x" value="$(arg init_x_)"/>
+        <param name="init_state_y" value="$(arg init_y_)"/>
+        <param name="init_state_z" value="$(arg init_z_)"/>
+    </node>
+
+    <node pkg="cascade_pid" name="cascadePID_node" type="cascade_pid_node">
+        <param name="drone_id" value="$(arg drone_id)"/>
+        <remap from="~odom" to="$(arg odom_topic)"/>
+        <remap from="~cmd_RPM" to="cmdRPM"/>
+        <remap from="~cmd_pose" to="pos_cmd"/>
+        <remap from="~position_cmd" to="planning/pos_cmd"/>
+        <param name="controller_rate" value="200"/>
+        <param name="quadrotor_name" value="quad_$(arg drone_id)"/>
+        <param name="init_state_x" value="$(arg init_x_)"/>
+        <param name="init_state_y" value="$(arg init_y_)"/>
+        <param name="init_state_z" value="$(arg init_z_)"/>
+        <param name="init_state_yaw" value="$(arg init_yaw)"/>
+        <param name="angle_stable_time" value="0.5"/>
+        <param name="damping_ratio" value="1.0"/>
+    </node>
+
+    <node pkg="odom_visualization" name="odom_visualization" type="odom_visualization" output="screen">
+        <remap from="~odom" to="$(arg odom_topic)"/>
+        <remap from="~cmd" to="pos_cmd"/>
+        <param name="init_x" value="$(arg init_x_)"/>
+        <param name="init_y" value="$(arg init_y_)"/>
+        <param name="init_z" value="$(arg init_z_)"/>
+        <param name="color/a" value="1.0"/>
+        <param name="color/r" value="1.0"/>
+        <param name="color/g" value="1.0"/>
+        <param name="color/b" value="0.0"/>
+        <param name="covariance_scale" value="100.0"/>
+        <param name="robot_scale" value="2.0"/>
+        <param name="quadrotor_name" value="quad$(arg drone_id)"/>
+        <param name="drone_id" value="$(arg drone_id)"/>
+        <param name="mesh_resource" value="package://odom_visualization/meshes/yunque.dae"/>
+    </node>
+
+</launch>

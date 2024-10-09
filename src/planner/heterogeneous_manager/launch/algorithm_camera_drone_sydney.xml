@@ -1,0 +1,169 @@
+<launch>
+  <arg name="map_size_x_"/>
+  <arg name="map_size_y_"/>
+  <arg name="map_size_z_"/>
+
+  <arg name="box_min_x"/>
+  <arg name="box_min_y"/>
+  <arg name="box_min_z"/>
+  <arg name="box_max_x"/>
+  <arg name="box_max_y"/>
+  <arg name="box_max_z"/>
+
+  <arg name="odometry_topic"/>
+  <arg name="sensor_pose_topic"/>
+  <arg name="depth_topic"/>
+  <arg name="cloud_topic"/>
+
+  <arg name="cx"/>
+  <arg name="cy"/>
+  <arg name="fx"/>
+  <arg name="fy"/>
+
+  <arg name="max_vel"/>
+  <arg name="max_acc"/>
+
+  <arg name="drone_id"/>
+  <arg name="drone_num"/>
+  <arg name="resolution"/>
+
+  <!-- main node -->
+  <node pkg="heterogeneous_manager" name="heterogeneous_planner_node" type="heterogeneous_planner_node" output="log">
+    <remap from ="/odom_world" to="$(arg odometry_topic)"/>
+
+    <remap from="/multi_map_manager/chunk_stamps_send" to="/multi_map_manager/chunk_stamps" />
+    <remap from="/multi_map_manager/chunk_data_send" to="/multi_map_manager/chunk_data" />
+    <remap from="/multi_map_manager/chunk_stamps_recv" to="/multi_map_manager/chunk_stamps" />
+    <remap from="/multi_map_manager/chunk_data_recv" to="/multi_map_manager/chunk_data" />
+
+    <remap from="/hetero_swarm/drone_state_send" to="/hetero_swarm/drone_state" />
+    <remap from="/hetero_swarm/drone_state_recv" to="/hetero_swarm/drone_state" />
+    <remap from="/hetero_swarm/task_assignment_recv" to="/hetero_swarm/task_assignment" />
+    <remap from="/hetero_swarm/visited_tour_send" to="/hetero_swarm/visited_tour" />
+
+    <remap from="/hcoppTraj/applied_trajectory" to="hcoppTraj/applied_trajectory" />
+
+    <remap from="/planning/replan" to="planning/replan" />
+    <remap from="/planning/minco_traj" to="planning/minco_traj" />
+
+    <remap from="/planning_vis/trajectory" to="planning_vis/trajectory" />
+    <remap from="/planning_vis/updated_viewpoints" to="planning_vis/updated_viewpoints" />
+    <remap from="/planning_vis/viewpoints" to="planning_vis/viewpoints" />
+    <remap from="/planning_vis/text" to="planning_vis/text" />
+    <remap from="/planning_vis/frontier" to="planning_vis/frontier" />
+    <remap from="/planning_vis/visib_constraint" to="planning_vis/visib_constraint" />
+    <remap from="/planning_vis/yaw" to="planning_vis/yaw" />
+    <remap from="/planning_vis/assigned_viewpoints" to="planning_vis/assigned_viewpoints" />
+
+    <remap from="/sdf_map/occupancy_all" to="sdf_map/occupancy_all" />
+    <remap from="/sdf_map/occupancy_local" to="sdf_map/occupancy_local" />
+    <remap from="/sdf_map/occupancy_local_inflate" to="sdf_map/occupancy_local_inflate" />
+    <remap from="/sdf_map/unknown" to="sdf_map/unknown" />
+    <remap from="/sdf_map/free" to="sdf_map/free" />
+    <remap from="/sdf_map/update_range" to="sdf_map/update_range" />
+    <remap from="/sdf_map/esdf" to="sdf_map/esdf" />
+    <remap from="/sdf_map/depth_cloud" to="sdf_map/depth_cloud" />
+    <remap from="/sdf_map/seen" to="sdf_map/seen" />
+
+    <!-- params -->
+    <param name="sdf_map/resolution" value="$(arg resolution)" />
+    <param name="sdf_map/map_size_x" value="$(arg map_size_x_)" />
+    <param name="sdf_map/map_size_y" value="$(arg map_size_y_)" />
+    <param name="sdf_map/map_size_z" value="$(arg map_size_z_)" />
+
+    <param name="sdf_map/obstacles_inflation" value="0.5" />
+    <param name="sdf_map/local_bound_inflate" value="1.0"/>
+    <param name="sdf_map/local_map_margin" value="50"/>
+    <param name="sdf_map/ground_height" value="-1.0"/>
+    <param name="sdf_map/default_dist" value="0.0"/>
+
+    <param name="sdf_map/p_hit" value="0.96"/>
+    <param name="sdf_map/p_miss" value="0.45"/>
+    <param name="sdf_map/p_min" value="0.12"/>
+    <param name="sdf_map/p_max" value="0.93"/>
+    <param name="sdf_map/p_occ" value="0.20"/>
+    <param name="sdf_map/min_ray_length" value="0.5"/>
+    <param name="sdf_map/max_ray_length" value="11.0"/>
+    <param name="sdf_map/virtual_ceil_height" value="-10"/>
+    <param name="sdf_map/optimistic" value="false" type="bool"/>
+    <param name="sdf_map/signed_dist" value="false" type="bool"/>
+    <param name="sdf_map/box_min_x" value="$(arg box_min_x)" type="double"/>
+    <param name="sdf_map/box_min_y" value="$(arg box_min_y)" type="double"/>
+    <param name="sdf_map/box_min_z" value="$(arg box_min_z)" type="double"/>
+    <param name="sdf_map/box_max_x" value="$(arg box_max_x)" type="double"/>
+    <param name="sdf_map/box_max_y" value="$(arg box_max_y)" type="double"/>
+    <param name="sdf_map/box_max_z" value="$(arg box_max_z)" type="double"/>
+
+    <param name="map_ros/cx" value="$(arg cx)"/>
+    <param name="map_ros/cy" value="$(arg cy)"/>
+    <param name="map_ros/fx" value="$(arg fx)"/>
+    <param name="map_ros/fy" value="$(arg fy)"/>
+    <param name="map_ros/depth_filter_maxdist" value="10.0"/>
+    <param name="map_ros/depth_filter_mindist" value="0.2"/>
+    <param name="map_ros/depth_filter_margin" value="2"/>
+    <param name="map_ros/k_depth_scaling_factor" value="1000.0"/>
+    <param name="map_ros/skip_pixel" value="2"/>
+    <param name="map_ros/esdf_slice_height" value="0.3"/>
+    <param name="map_ros/visualization_truncate_height" value="50.0"/>
+    <param name="map_ros/visualization_truncate_low" value="-2.0"/>
+    <param name="map_ros/show_occ_time" value="false"/>
+    <param name="map_ros/show_esdf_time" value="false"/>
+    <param name="map_ros/show_all_map" value="true"/>
+    <param name="map_ros/frame_id" value="world"/>
+
+    <!-- Fsm -->
+    <param name="fsm/thresh_replan1" value="0.20" type="double"/>
+    <param name="fsm/thresh_replan2" value="0.20" type="double"/>
+    <param name="fsm/thresh_replan3" value="0.80" type="double"/>
+    <param name="fsm/replan_time" value="0.200" type="double"/>
+
+    <!-- Exploration manager -->
+    <param name="exploration/vm" value="$(eval 1.0 * arg('max_vel'))" type="double"/>
+    <param name="exploration/am" value="$(eval 1.0 * arg('max_acc'))" type="double"/>
+    <param name="exploration/yd" value="$(eval 60 * 3.1415926 / 180.0)" type="double"/>
+    <param name="exploration/ydd" value="$(eval 90 * 3.1415926 / 180.0)" type="double"/>
+    <param name="exploration/mtsp_dir" value="$(find lkh_mtsp_solver)/resource" type="string"/>
+    <param name="exploration/drone_id" value="$(arg drone_id)" type="int"/>
+    <param name="exploration/drone_num" value="$(arg drone_num)" type="int"/>
+
+    <!-- Perception utils -->
+    <param name="perception_utils/lidar_top_angle" value="$(eval 38 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/lidar_bottom_angle" value="$(eval 8 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/lidar_left_angle" value="$(eval 60 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/lidar_right_angle" value="$(eval 60 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/lidar_max_dist" value="22.0" type="double"/>
+    <param name="perception_utils/lidar_vis_dist" value="1.0" type="double"/>
+
+    <param name="perception_utils/camera_top_angle" value="$(eval 30 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/camera_bottom_angle" value="$(eval 30 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/camera_left_angle" value="$(eval 40 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/camera_right_angle" value="$(eval 40 * 3.1415926 / 180.0)" type="double"/>
+    <param name="perception_utils/camera_max_dist" value="7.5" type="double"/>
+    <param name="perception_utils/camera_vis_dist" value="0.8" type="double"/>
+
+    <param name="astar/lambda_heu" value="2.0" type="double"/>
+    <param name="astar/resolution_astar" value="0.5" type="double"/>
+    <param name="astar/allocate_num" value="1000000" type="int"/>
+    <param name="astar/max_search_time" value="0.1" type="double"/>
+
+    <param name="traj_generator/vmax_" value="$(arg max_vel)" type="double"/>
+    <param name="traj_generator/amax_" value="$(arg max_acc)" type="double"/>
+    <param name="traj_generator/jmax_" value="1.0" type="double"/>
+    <param name="traj_generator/ydmax_" value="$(eval 90 * 3.1415926/180.0)" type="double"/>
+    <param name="traj_generator/rho_T" value="80.0" type="double"/>
+    <param name="traj_generator/rho_j" value="50.0" type="double"/>
+    <param name="traj_generator/rho_a" value="50.0" type="double"/>
+    <param name="traj_generator/rho_v" value="50.0" type="double"/>
+    <param name="traj_generator/rho_p" value="500.0" type="double"/>
+    <param name="traj_generator/rho_e" value="10.0" type="double"/>
+  </node>
+
+  <!-- AMTSP solver -->
+  <node pkg="lkh_mtsp_solver" name="tsp_solver_$(arg drone_id)" type="mtsp_node" output="log">
+    <param name="exploration/drone_id" value="$(arg drone_id)" type="int"/>
+    <param name="exploration/lkh_dir" value="$(find lkh_mtsp_solver)/LKH/LKH" type="string"/>
+    <param name="exploration/mtsp_dir" value="$(find lkh_mtsp_solver)/resource" type="string"/>
+    <param name="exploration/problem_id" value="1" type="int"/>
+  </node>
+
+</launch>

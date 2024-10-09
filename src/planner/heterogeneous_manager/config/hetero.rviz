@@ -1,0 +1,1119 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /explorer1/map1/occupied_all1/Autocompute Value Bounds1
+        - /photographers1/drone41/Marker2
+        - /photographers1/drone41/Marker3
+        - /visualization1
+        - /visualization1/exploration_vis1/expl_surface1
+        - /visualization1/exploration_vis1/expl_surface1/Autocompute Value Bounds1
+        - /visualization1/incremental_vp_vis1/expl_surface1/Autocompute Value Bounds1
+        - /visualization1/all_vis1/cover_vis1/cover21
+        - /visualization1/all_vis1/cover_vis1/cover21/Autocompute Value Bounds1
+        - /visualization1/all_vis1/cover_vis1/cover31
+        - /visualization1/all_vis1/cover_vis1/cover31/Autocompute Value Bounds1
+        - /visualization1/all_vis1/cover_vis1/cover11
+        - /visualization1/all_vis1/cover_vis1/cover11/Autocompute Value Bounds1
+      Splitter Ratio: 0.5789473652839661
+    Tree Height: 567
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Name: Time
+    SyncMode: 0
+    SyncSource: cover1
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 40
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Alpha: 0.20000000298023224
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 2
+        Min Value: -1
+        Value: false
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 161; 161; 161
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: simulation_map
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.20000000298023224
+      Style: Flat Squares
+      Topic: /map_generator/global_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Alpha: 0.5
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 10
+                Min Value: -10
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 196; 160; 0
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: false
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: lidar_cloud
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.05000000074505806
+              Style: Flat Squares
+              Topic: /quad_0/pcl_render_node/cloud
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: false
+          Enabled: true
+          Name: simulation
+        - Class: rviz/Group
+          Displays:
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 2.549999952316284
+                Min Value: 0.15000000596046448
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 233; 185; 110
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: false
+              Invert Rainbow: false
+              Max Color: 0; 0; 0
+              Min Color: 0; 0; 0
+              Name: occupied_all
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 15
+              Size (m): 0.30000001192092896
+              Style: Flat Squares
+              Topic: /quad_0/sdf_map/occupancy_all
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: false
+            - Alpha: 0.5
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 10
+                Min Value: -10
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 52; 101; 164
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: false
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: unknown
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.05000000074505806
+              Style: Flat Squares
+              Topic: /quad_0/sdf_map/unknown
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: false
+          Enabled: false
+          Name: map
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning_vis/updated_viewpoints
+              Name: final_vp
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning_vis/frontier
+              Name: surface
+              Namespaces:
+                {}
+              Queue Size: 10000
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning_vis/viewpoints
+              Name: viewpoint
+              Namespaces:
+                {}
+              Queue Size: 1000
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning_vis/text
+              Name: text
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+          Enabled: true
+          Name: active_perception
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning/travel_traj
+              Name: travel_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning/position_cmd_vis
+              Name: position_cmd_vis
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+          Enabled: true
+          Name: planning
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /quad_0/planning_vis/text
+          Name: viewpoint_cluster_assignment
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+      Enabled: false
+      Name: explorer
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_1/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Group
+              Displays:
+                - Alpha: 0.10000000149011612
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 10
+                    Min Value: -10
+                    Value: true
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 255; 255; 255
+                  Color Transformer: FlatColor
+                  Decay Time: 0
+                  Enabled: false
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: unknown
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.07000000029802322
+                  Style: Flat Squares
+                  Topic: /quad_1/sdf_map/unknown
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: false
+                - Alpha: 1
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 10
+                    Min Value: -10
+                    Value: true
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 255; 255; 255
+                  Color Transformer: Intensity
+                  Decay Time: 0
+                  Enabled: false
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: free
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.009999999776482582
+                  Style: Flat Squares
+                  Topic: /quad_1/sdf_map/free
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: false
+                - Alpha: 1
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 10
+                    Min Value: -10
+                    Value: true
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 245; 121; 0
+                  Color Transformer: FlatColor
+                  Decay Time: 0
+                  Enabled: true
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: occ
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.10000000149011612
+                  Style: Flat Squares
+                  Topic: /quad_1/sdf_map/occupancy_all
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: true
+              Enabled: false
+              Name: sdf_map
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_1/planning/position_cmd_vis
+              Name: pos_cmd
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_1/planning_vis/assigned_viewpoints
+              Name: assigned_viewpoints
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_1/planning/travel_traj
+              Name: travel
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_1/hcoppTraj/applied_trajectory
+              Name: minco_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_1/planning_vis/text
+              Name: text
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+          Enabled: true
+          Name: drone1
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_2/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_2/planning/position_cmd_vis
+              Name: pos_cmd
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_2/planning_vis/assigned_viewpoints
+              Name: assigned_viewpoints
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_2/planning/travel_traj
+              Name: travel
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_2/hcoppTraj/applied_trajectory
+              Name: minco_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_2/planning_vis/text
+              Name: text
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+          Enabled: true
+          Name: drone2
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_3/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_3/hcoppTraj/applied_trajectory
+              Name: minco_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_3/planning/travel_traj
+              Name: travel_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_3/planning_vis/assigned_viewpoints
+              Name: assigned_viewpoints
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_3/planning/position_cmd_vis
+              Name: pos_cmd
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+          Enabled: true
+          Name: drone3
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_4/odom_visualization/robot
+              Name: Marker
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_4/planning_vis/assigned_viewpoints
+              Name: Marker
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_4/planning/travel_traj
+              Name: Marker
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+          Enabled: true
+          Name: drone4
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_5/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+          Enabled: true
+          Name: drone5
+      Enabled: false
+      Name: photographers
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning/travel_traj
+              Name: travel_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning_vis/frontier
+              Name: surface_frontier
+              Namespaces:
+                {}
+              Queue Size: 10000
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 8
+                Min Value: -6
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 211; 215; 207
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: global_surface
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.20000000298023224
+              Style: Flat Squares
+              Topic: /sdf_map/global
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 40
+                Min Value: -2
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 206; 92; 0
+              Color Transformer: AxisColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: expl_surface
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.6000000238418579
+              Style: Flat Squares
+              Topic: /quad_0/sdf_map/expl
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning/position_cmd_vis
+              Name: position_cmd_vis
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+          Enabled: false
+          Name: exploration_vis
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning/travel_traj
+              Name: travel_traj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 8
+                Min Value: -6
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 211; 215; 207
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: global_surface
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.20000000298023224
+              Style: Flat Squares
+              Topic: /sdf_map/global
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 40
+                Min Value: -2
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 206; 92; 0
+              Color Transformer: AxisColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: expl_surface
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.5
+              Style: Flat Squares
+              Topic: /quad_0/sdf_map/expl
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning_vis/updated_viewpoints
+              Name: final_vp
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+          Enabled: false
+          Name: incremental_vp_vis
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Group
+              Displays:
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_1/odom_visualization/robot
+                  Name: robot
+                  Namespaces:
+                    mesh: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_1/planning/position_cmd_vis
+                  Name: pos_cmd
+                  Namespaces:
+                    current_pose: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_1/planning_vis/assigned_viewpoints
+                  Name: assigned_viewpoints
+                  Namespaces:
+                    Drone1_allocated_points: true
+                    final_tour: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_1/planning/travel_traj
+                  Name: travel
+                  Namespaces:
+                    "": true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: false
+                  Marker Topic: /quad_1/hcoppTraj/applied_trajectory
+                  Name: minco_traj
+                  Namespaces:
+                    {}
+                  Queue Size: 100
+                  Value: false
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_0/odom_visualization/robot
+                  Name: robot
+                  Namespaces:
+                    mesh: true
+                  Queue Size: 100
+                  Value: true
+              Enabled: true
+              Name: drone1
+            - Class: rviz/Group
+              Displays:
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_2/odom_visualization/robot
+                  Name: robot
+                  Namespaces:
+                    mesh: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_2/planning/position_cmd_vis
+                  Name: pos_cmd
+                  Namespaces:
+                    current_pose: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_2/planning_vis/assigned_viewpoints
+                  Name: assigned_viewpoints
+                  Namespaces:
+                    Drone2_allocated_points: true
+                    final_tour: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_2/planning/travel_traj
+                  Name: travel
+                  Namespaces:
+                    "": true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: false
+                  Marker Topic: /quad_2/hcoppTraj/applied_trajectory
+                  Name: minco_traj
+                  Namespaces:
+                    {}
+                  Queue Size: 100
+                  Value: false
+              Enabled: true
+              Name: drone2
+            - Class: rviz/Group
+              Displays:
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_3/odom_visualization/robot
+                  Name: robot
+                  Namespaces:
+                    mesh: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: false
+                  Marker Topic: /quad_3/hcoppTraj/applied_trajectory
+                  Name: minco_traj
+                  Namespaces:
+                    {}
+                  Queue Size: 100
+                  Value: false
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_3/planning/travel_traj
+                  Name: travel_traj
+                  Namespaces:
+                    "": true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_3/planning_vis/assigned_viewpoints
+                  Name: assigned_viewpoints
+                  Namespaces:
+                    Drone3_allocated_points: true
+                    final_tour: true
+                  Queue Size: 100
+                  Value: true
+                - Class: rviz/Marker
+                  Enabled: true
+                  Marker Topic: /quad_3/planning/position_cmd_vis
+                  Name: pos_cmd
+                  Namespaces:
+                    current_pose: true
+                  Queue Size: 100
+                  Value: true
+              Enabled: true
+              Name: drone3
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /quad_0/planning/travel_traj
+              Name: travel_traj
+              Namespaces:
+                "": true
+              Queue Size: 100
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 8
+                Min Value: -6
+                Value: false
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 211; 215; 207
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: false
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: global_surface
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.20000000298023224
+              Style: Flat Squares
+              Topic: /sdf_map/global
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: false
+            - Class: rviz/Group
+              Displays:
+                - Alpha: 1
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 20
+                    Min Value: -20
+                    Value: false
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 115; 210; 22
+                  Color Transformer: AxisColor
+                  Decay Time: 0
+                  Enabled: true
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: cover2
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.4000000059604645
+                  Style: Flat Squares
+                  Topic: /quad_2/sdf_map/seen
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: true
+                - Alpha: 1
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 20
+                    Min Value: -20
+                    Value: false
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 115; 210; 22
+                  Color Transformer: AxisColor
+                  Decay Time: 0
+                  Enabled: true
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: cover3
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.4000000059604645
+                  Style: Flat Squares
+                  Topic: /quad_3/sdf_map/seen
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: true
+                - Alpha: 1
+                  Autocompute Intensity Bounds: true
+                  Autocompute Value Bounds:
+                    Max Value: 20
+                    Min Value: -20
+                    Value: false
+                  Axis: Z
+                  Channel Name: intensity
+                  Class: rviz/PointCloud2
+                  Color: 115; 210; 22
+                  Color Transformer: AxisColor
+                  Decay Time: 0
+                  Enabled: true
+                  Invert Rainbow: false
+                  Max Color: 255; 255; 255
+                  Min Color: 0; 0; 0
+                  Name: cover1
+                  Position Transformer: XYZ
+                  Queue Size: 10
+                  Selectable: true
+                  Size (Pixels): 3
+                  Size (m): 0.4000000059604645
+                  Style: Flat Squares
+                  Topic: /quad_1/sdf_map/seen
+                  Unreliable: false
+                  Use Fixed Frame: true
+                  Use rainbow: true
+                  Value: true
+              Enabled: true
+              Name: cover_vis
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /quad_0/planning_vis/updated_viewpoints
+              Name: final_vp
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+          Enabled: true
+          Name: all_vis
+      Enabled: true
+      Name: visualization
+  Enabled: true
+  Global Options:
+    Background Color: 255; 255; 255
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/ThirdPersonFollower
+      Distance: 110.89872741699219
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: -7.005331516265869
+        Y: -0.4473952054977417
+        Z: 0.000167479069205001
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.094796895980835
+      Target Frame: <Fixed Frame>
+      Yaw: 3.0318546295166016
+    Saved:
+      - Class: rviz/ThirdPersonFollower
+        Distance: 40.93450164794922
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: -4.595006942749023
+          Y: 0.3861931562423706
+          Z: -2.5082706997636706e-05
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: view1
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.1797970533370972
+        Target Frame: <Fixed Frame>
+        Yaw: 3.139589309692383
+      - Angle: -1.5749993324279785
+        Class: rviz/TopDownOrtho
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: TopDown
+        Near Clip Distance: 0.009999999776482582
+        Scale: 34.78550720214844
+        Target Frame: <Fixed Frame>
+        X: 4.145483016967773
+        Y: 0.36561644077301025
+      - Class: rviz/ThirdPersonFollower
+        Distance: 19.832666397094727
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: 4.6872148513793945
+          Y: -7.146626949310303
+          Z: -5.3683081205235794e-05
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: ThirdPersonFollower
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5647963285446167
+        Target Frame: <Fixed Frame>
+        Yaw: 2.869372606277466
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1022
+  Hide Left Dock: false
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd000000040000000000000156000003a4fc0200000010fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000274000000c900fffffffb0000000a0049006d00610067006500000001900000007f0000000000000000fb0000000a0056006900650077007301000002b70000012a000000a400fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006100000001d1000000b50000000000000000fb0000000a00640065007000740068000000033c000000e70000000000000000fb0000000a0049006d0061006700650100000415000000f80000000000000000fb0000000a0049006d00610067006501000003f4000001190000000000000000fb0000000a0049006d0061006700650100000385000001c90000000000000000fb0000000a0049006d0061006700650000000476000000d80000000000000000000000010000010f00000385fc0200000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006100000003bfc0100000002fb0000000800540069006d00650000000000000006100000041800fffffffb0000000800540069006d00650100000000000004500000000000000000000002dc000003a400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1080
+  X: 2560
+  Y: 414

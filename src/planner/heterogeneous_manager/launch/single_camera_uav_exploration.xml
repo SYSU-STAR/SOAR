@@ -1,0 +1,143 @@
+<launch>
+    <arg name="use_gpu_" default="false"/>
+
+    <!-- user config -->
+    <arg name="drone_id"/>
+    <arg name="drone_num"/>
+    <arg name="map_size_x"/>
+    <arg name="map_size_y"/>
+    <arg name="map_size_z"/>
+    <arg name="init_x"/>
+    <arg name="init_y"/>
+    <arg name="init_z"/>
+    <arg name="init_yaw" default="0.0" />
+    <arg name="max_vel"/>
+    <arg name="max_acc"/>
+    <arg name="map_name"/>
+    <arg name="downsample_resolution" default="0.1"/>
+    <arg name="resolution" default="0.1"/>
+
+    <!-- fix config -->
+    <arg name="frame_id" default="world"/>
+    <arg name="global_cloud_topic" default="/map_generator/global_cloud"/>
+    <arg name="map_filename" default="$(find map_generator)/resource/$(arg map_name).pcd"/>
+    <arg name="use_uav_extra_model" default="0"/>
+    <arg name="odom_topic" value="lidar_slam/odom" />
+
+    <!-- main algorithm params -->
+    <include file="$(find heterogeneous_manager)/launch/algorithm_camera_drone_$(arg map_name).xml">
+        <arg name="drone_id" value="$(arg drone_id)" />
+        <arg name="drone_num" value="$(arg drone_num)" />
+
+        <arg name="map_size_x_" value="$(arg map_size_x)"/>
+        <arg name="map_size_y_" value="$(arg map_size_y)"/>
+        <arg name="map_size_z_" value="$(arg map_size_z)"/>
+        <arg name="resolution" value="$(arg resolution)" />
+
+        <arg if="$(eval map_name=='factory')" name="box_min_x" value="-18.5" />
+        <arg if="$(eval map_name=='factory')" name="box_min_y" value="-23.0" />
+        <arg if="$(eval map_name=='factory')" name="box_min_z" value="1.9" />
+        <arg if="$(eval map_name=='factory')" name="box_max_x" value="22.5" />
+        <arg if="$(eval map_name=='factory')" name="box_max_y" value="23.0" />
+        <arg if="$(eval map_name=='factory')" name="box_max_z" value="8.0" />
+
+        <arg if="$(eval map_name=='old')" name="box_min_x" value="-24.0" />
+        <arg if="$(eval map_name=='old')" name="box_min_y" value="-26.0" />
+        <arg if="$(eval map_name=='old')" name="box_min_z" value="1.0" />
+        <arg if="$(eval map_name=='old')" name="box_max_x" value="22.0" />
+        <arg if="$(eval map_name=='old')" name="box_max_y" value="24.0" />
+        <arg if="$(eval map_name=='old')" name="box_max_z" value="17.0" />
+
+        <arg if="$(eval map_name=='sydney')" name="box_min_x" value="-25.0" />
+        <arg if="$(eval map_name=='sydney')" name="box_min_y" value="-32.0" />
+        <arg if="$(eval map_name=='sydney')" name="box_min_z" value="1.0" />
+        <arg if="$(eval map_name=='sydney')" name="box_max_x" value="30.0" />
+        <arg if="$(eval map_name=='sydney')" name="box_max_y" value="30.0" />
+        <arg if="$(eval map_name=='sydney')" name="box_max_z" value="18.5" />
+
+        <arg if="$(eval map_name=='pisa')" name="box_min_x" value="-26.0" />
+        <arg if="$(eval map_name=='pisa')" name="box_min_y" value="-31.0" />
+        <arg if="$(eval map_name=='pisa')" name="box_min_z" value="1.0" />
+        <arg if="$(eval map_name=='pisa')" name="box_max_x" value="28.0" />
+        <arg if="$(eval map_name=='pisa')" name="box_max_y" value="31.0" />
+        <arg if="$(eval map_name=='pisa')" name="box_max_z" value="18.5" />
+
+        <arg if="$(eval map_name=='temple')" name="box_min_x" value="-28.0" />
+        <arg if="$(eval map_name=='temple')" name="box_min_y" value="-25.0" />
+        <arg if="$(eval map_name=='temple')" name="box_min_z" value="1.0" />
+        <arg if="$(eval map_name=='temple')" name="box_max_x" value="31.0" />
+        <arg if="$(eval map_name=='temple')" name="box_max_y" value="25.0" />
+        <arg if="$(eval map_name=='temple')" name="box_max_z" value="16.0" />
+
+        <arg if="$(eval map_name=='liberty')" name="box_min_x" value="-18.0" />
+        <arg if="$(eval map_name=='liberty')" name="box_min_y" value="-18.0" />
+        <arg if="$(eval map_name=='liberty')" name="box_min_z" value="1.0" />
+        <arg if="$(eval map_name=='liberty')" name="box_max_x" value="22.0" />
+        <arg if="$(eval map_name=='liberty')" name="box_max_y" value="19.0" />
+        <arg if="$(eval map_name=='liberty')" name="box_max_z" value="50.0" />
+
+        <arg name="odometry_topic" value="$(arg odom_topic)"/>
+        <arg name="sensor_pose_topic" value="pcl_render_node/sensor_pose"/>
+        <arg name="depth_topic" value="/pcl_render_node/depth"/>
+        <arg name="cloud_topic" value="pcl_render_node/cloud"/>
+
+        <!-- intrinsic params of the depth camera -->
+        <arg name="cx" value="321.04638671875"/>
+        <arg name="cy" value="243.44969177246094"/>
+        <arg name="fx" value="387.229248046875"/>
+        <arg name="fy" value="387.229248046875"/>
+
+        <!-- maximum velocity and acceleration the drone will reach -->
+        <arg name="max_vel" value="$(arg max_vel)" />
+        <arg name="max_acc" value="$(arg max_acc)" />
+    </include>
+
+    <!-- trajectory server -->
+    <node pkg="traj_manager" name="traj_server" type="traj_server" output="screen">
+        <param name="drone_id" value="$(arg drone_id)" />
+        <param name="drone_num" value="$(arg drone_num)" />
+        <param name="map_name" value="$(arg map_name)" type="string"/>
+        <param name="output_folder" value="$(find traj_manager)/output" type="string"/>
+
+        <remap from="/position_cmd" to="planning/pos_cmd"/>
+        <remap from="/planning/replan" to="planning/replan" />
+        <remap from="/planning/minco_traj" to="planning/minco_traj" />
+        <remap from="/odom_world" to="$(arg odom_topic)"/>
+
+        <param name="traj_server/time_forward" value="1.5" type="double"/>
+        <param name="traj_server/pub_traj_id" value="4" type="int"/>
+        <param name="traj_server/init_x" value="$(arg init_x)" type="double"/>
+        <param name="traj_server/init_y" value="$(arg init_y)" type="double"/>
+        <param name="traj_server/init_z" value="$(arg init_z)" type="double"/>
+
+        <param name="perception_utils/lidar_top_angle" value="$(eval 38 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/lidar_bottom_angle" value="$(eval 8 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/lidar_left_angle" value="$(eval 60 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/lidar_right_angle" value="$(eval 60 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/lidar_max_dist" value="22.0" type="double"/>
+        <param name="perception_utils/lidar_vis_dist" value="1.0" type="double"/>
+
+        <param name="perception_utils/camera_top_angle" value="$(eval 30 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/camera_bottom_angle" value="$(eval 30 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/camera_left_angle" value="$(eval 40 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/camera_right_angle" value="$(eval 40 * 3.1415926 / 180.0)" type="double"/>
+        <param name="perception_utils/camera_max_dist" value="5.0" type="double"/>
+        <param name="perception_utils/camera_vis_dist" value="1.4" type="double"/>
+    </node>
+
+    <!-- drone config -->
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav.xml">
+        <arg name="drone_id" value="$(arg drone_id)"/>
+        <arg name="uav_num_" value="$(arg drone_num)"/>
+        <arg name="init_x_" value="$(arg init_x)"/>
+        <arg name="init_y_" value="$(arg init_y)"/>
+        <arg name="init_z_" value="$(arg init_z)"/>
+        <arg name="init_yaw" value="$(arg init_yaw)"/>
+        <arg name="map_name_" value="$(arg map_filename)"/>
+        <arg name="downsample_resolution_" value="$(arg downsample_resolution)"/>
+        <arg name="odom_topic" value="$(arg odom_topic)"/>
+        <arg name="use_gpu" value="$(arg use_gpu_)"/>
+        <arg name="use_uav_extra_model_" value="$(arg use_uav_extra_model)"/>
+    </include>
+
+</launch>

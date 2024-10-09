@@ -34,11 +34,21 @@
     <a href="https://www.bilibili.com/video/BV1G1421Q79m/"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
 </div>
 
-## System Overview
 
-<div align=center><img src="img/pipeline.png" height=85% width=85% ></div>
+## 📢 News
 
-## Citation
+- **[30/06/2024]**: SOAR is accepted to IROS 2024 and selected as **oral presentation** (acceptance rate: 10%). 
+
+## 📜 Introduction
+
+**[IROS'24]** This repository maintains the implementation of "SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction".
+
+<p align="center">
+  <img src="assets/videos/pisa.gif" width = 60% height = 60%/>
+</p>
+<p align="center">
+  <img src="assets/videos/sydney.gif" width = 60% height = 60%/>
+</p>
 
 If you find this work useful in your research, please consider citing:
 
@@ -50,7 +60,75 @@ If you find this work useful in your research, please consider citing:
   year={2024}
 }
 ```
+## 🛠️ Installation
 
+### Prerequisite
+
+* ROS Noetic (Ubuntu 20.04) or ROS Melodic (Ubuntu 18.04)
+* PCL
+* Eigen
+
+__For Marsim__:
+```shell
+sudo apt update
+sudo apt install libglfw3-dev libglew-dev
+```
+
+__For GCOPTER__:
+```shell
+sudo apt update
+sudo apt install libompl-dev
+```
+
+### Compilation
+
+__Project__:
+
+```shell
+git clone https://github.com/SYSU-STAR/SOAR
+cd SOAR
+catkin_make
+```
+
+__LKH-3.0.6__:
+```shell
+cd src/planner/utils/lkh_mtsp_solver/LKH
+make
+```
+
+## 🚀 Quick Start
+
+__Pisa Cathedral__
+```shell
+source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
+source devel/setup.bash && roslaunch heterogeneous_manager pisa.launch
+```
+
+__Sydney Opera House__
+```shell
+source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
+source devel/setup.bash && roslaunch heterogeneous_manager sydney.launch
+```
+
+__NOTE__: Trigger the quadrotors to start planning with the `2D Nav Goal` when the terminal displays `wait for trigger`. All scenes are provided in `src/heterogeneous_manager/launch/XXX.launch`
+
+If you want to use the GPU version of MARSIM, you can change the parameter "use_gpu" to `true` in `src/heterogeneous_manager/launch/XXX.launch`
+
+```xml
+  <arg name="use_gpu" value="true" />
+```
+## 🤓 Acknowledgments
+
+- [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner)
+- [FUEL](https://github.com/HKUST-Aerial-Robotics/FUEL)
+- [RACER](https://github.com/SYSU-STAR/RACER)
+- [GCOPTER](https://github.com/ZJU-FAST-Lab/GCOPTER)
+
+## 🤗 FC-family Works
+
+<<<<<<< HEAD
+#### 1. What is FC-family?
+=======
 ## 🤗 FC-family Works
 
 #### 1. What is FC-family?
@@ -64,8 +142,13 @@ We aim to develop intelligent perception-centric flight to realize ***F***ast **
 * [SOAR](https://github.com/SYSU-STAR/SOAR) (IROS2024): Heterogenous Multi-UAV Planner for Aerial Reconstruction.
 
 ## Todo
+>>>>>>> 5c5925464828562b99ba1bca21a8d6c8cc6803b1
 
-For **more information**, please pay more attention to our [**project homepage**](https://sysu-star.github.io/SOAR) (\*^▽^\*).
+We aim to develop intelligent perception-centric flight to realize ***F***ast ***C***overage / re***C***onstruction / inspe***C***tion etc.
 
+#### 2. Projects list
 
-Code will come soon~~~
+* [PredRecon](https://github.com/HKUST-Aerial-Robotics/PredRecon) (ICRA2023): Prediction-boosted Planner for Aerial Reconstruction.
+* [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner) (ICRA2024): Highly Efficient Global Planner for Aerial Coverage.
+* [SOAR](https://github.com/SYSU-STAR/SOAR) (IROS2024): Heterogenous Multi-UAV Planner for Aerial Reconstruction.
+  
