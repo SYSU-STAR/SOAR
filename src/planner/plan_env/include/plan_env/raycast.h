@@ -76,9 +76,7 @@ public:
 
   void setParams(const double& res, const Eigen::Vector3d& origin);
   bool input(const Eigen::Vector3d& start, const Eigen::Vector3d& end);
-  bool biInput(const Eigen::Vector3d& start, const Eigen::Vector3d& end);
   bool nextId(Eigen::Vector3i& idx);
-  bool biNextId(Eigen::Vector3i& idx, Eigen::Vector3i& idxR);
   bool nextPos(Eigen::Vector3d& pos);
 
   // deprecated

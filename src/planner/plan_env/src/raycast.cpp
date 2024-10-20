@@ -49,12 +49,12 @@ void Raycast(const Eigen::Vector3d& start, const Eigen::Vector3d& end, const Eig
   // tMaxX, tMaxY, and tMaxZ.
 
   // Cube containing origin point.
-  int x = (int)std::floor(start.x());
-  int y = (int)std::floor(start.y());
-  int z = (int)std::floor(start.z());
-  int endX = (int)std::floor(end.x());
-  int endY = (int)std::floor(end.y());
-  int endZ = (int)std::floor(end.z());
+  int x = (int)std::floor(start.x() + 1e-6);
+  int y = (int)std::floor(start.y() + 1e-6);
+  int z = (int)std::floor(start.z() + 1e-6);
+  int endX = (int)std::floor(end.x() + 1e-6);
+  int endY = (int)std::floor(end.y() + 1e-6);
+  int endZ = (int)std::floor(end.z() + 1e-6);
   Eigen::Vector3d direction = (end - start);
   double maxDist = direction.squaredNorm();
 
@@ -159,12 +159,12 @@ void Raycast(const Eigen::Vector3d& start, const Eigen::Vector3d& end, const Eig
   // tMaxX, tMaxY, and tMaxZ.
 
   // Cube containing origin point.
-  int x = (int)std::floor(start.x());
-  int y = (int)std::floor(start.y());
-  int z = (int)std::floor(start.z());
-  int endX = (int)std::floor(end.x());
-  int endY = (int)std::floor(end.y());
-  int endZ = (int)std::floor(end.z());
+  int x = (int)std::floor(start.x() + 1e-6);
+  int y = (int)std::floor(start.y() + 1e-6);
+  int z = (int)std::floor(start.z() + 1e-6);
+  int endX = (int)std::floor(end.x() + 1e-6);
+  int endY = (int)std::floor(end.y() + 1e-6);
+  int endZ = (int)std::floor(end.z() + 1e-6);
   Eigen::Vector3d direction = (end - start);
   double maxDist = direction.squaredNorm();
 
@@ -252,12 +252,12 @@ bool RayCaster::setInput(const Eigen::Vector3d& start,
   // max_ = max;
   // min_ = min;
 
-  x_ = (int)std::floor(start_.x());
-  y_ = (int)std::floor(start_.y());
-  z_ = (int)std::floor(start_.z());
-  endX_ = (int)std::floor(end_.x());
-  endY_ = (int)std::floor(end_.y());
-  endZ_ = (int)std::floor(end_.z());
+  x_ = (int)std::floor(start_.x() + 1e-6);
+  y_ = (int)std::floor(start_.y() + 1e-6);
+  z_ = (int)std::floor(start_.z() + 1e-6);
+  endX_ = (int)std::floor(end_.x() + 1e-6);
+  endY_ = (int)std::floor(end_.y() + 1e-6);
+  endZ_ = (int)std::floor(end_.z() + 1e-6);
   direction_ = (end_ - start_);
   maxDist_ = direction_.squaredNorm();
 
@@ -355,12 +355,12 @@ bool RayCaster::input(const Eigen::Vector3d& start, const Eigen::Vector3d& end)
   start_ = start / resolution_;
   end_ = end / resolution_;
 
-  x_ = (int)std::floor(start_.x());
-  y_ = (int)std::floor(start_.y());
-  z_ = (int)std::floor(start_.z());
-  endX_ = (int)std::floor(end_.x());
-  endY_ = (int)std::floor(end_.y());
-  endZ_ = (int)std::floor(end_.z());
+  x_ = (int)std::floor(start_.x() + 1e-6);
+  y_ = (int)std::floor(start_.y() + 1e-6);
+  z_ = (int)std::floor(start_.z() + 1e-6);
+  endX_ = (int)std::floor(end_.x() + 1e-6);
+  endY_ = (int)std::floor(end_.y() + 1e-6);
+  endZ_ = (int)std::floor(end_.z() + 1e-6);
   direction_ = (end_ - start_);
   maxDist_ = direction_.squaredNorm();
 
@@ -391,64 +391,6 @@ bool RayCaster::input(const Eigen::Vector3d& start, const Eigen::Vector3d& end)
 
   // Avoids an infinite loop.
   if (stepX_ == 0 && stepY_ == 0 && stepZ_ == 0)
-    return false;
-  else
-    return true;
-}
-
-bool RayCaster::biInput(const Eigen::Vector3d& start, const Eigen::Vector3d& end)
-{
-  start_ = start / resolution_;
-  inter_ = 0.5 * (start + end) / resolution_;
-  end_ = end / resolution_;
-
-  x_ = (int)std::floor(start_.x());
-  y_ = (int)std::floor(start_.y());
-  z_ = (int)std::floor(start_.z());
-  interX_ = (int)std::floor(inter_.x());
-  interY_ = (int)std::floor(inter_.y());
-  interZ_ = (int)std::floor(inter_.z());
-  endX_ = (int)std::floor(end_.x());
-  endY_ = (int)std::floor(end_.y());
-  endZ_ = (int)std::floor(end_.z());
-  dir_p = (inter_ - start_);
-  dir_n = (inter_ - end_);
-  maxDp = dir_p.squaredNorm();
-  maxDn = dir_n.squaredNorm();
-
-  dx_p = interX_ - x_;
-  dy_p = interY_ - y_;
-  dz_p = interZ_ - z_;
-  dx_n = interX_ - endX_;
-  dy_n = interY_ - endY_;
-  dz_n = interZ_ - endZ_;
-
-  stepXp = (int)signum((int)dx_p);
-  stepYp = (int)signum((int)dy_p);
-  stepZp = (int)signum((int)dz_p);
-  stepXn = (int)signum((int)dx_n);
-  stepYn = (int)signum((int)dy_n);
-  stepZn = (int)signum((int)dz_n);
-
-  tMaxXp = intbound(start_.x(), dx_p);
-  tMaxYp = intbound(start_.y(), dy_p);
-  tMaxZp = intbound(start_.z(), dz_p);
-  tMaxXn = intbound(end_.x(), dx_n);
-  tMaxYn = intbound(end_.y(), dy_n);
-  tMaxZn = intbound(end_.z(), dz_n);
-
-  tDeltaXp = ((double)stepXp) / dx_p;
-  tDeltaYp = ((double)stepYp) / dy_p;
-  tDeltaZp = ((double)stepZp) / dz_p;
-  tDeltaXn = ((double)stepXn) / dx_n;
-  tDeltaYn = ((double)stepYn) / dy_n;
-  tDeltaZn = ((double)stepZn) / dz_n;
-
-  dist_ = 0;
-
-  step_num_ = 0;
-
-  if (stepXp == 0 && stepYp == 0 && stepZp == 0)
     return false;
   else
     return true;
@@ -491,74 +433,6 @@ bool RayCaster::nextId(Eigen::Vector3i& idx)
   }
 
   return true;
-}
-
-bool RayCaster::biNextId(Eigen::Vector3i& idx, Eigen::Vector3i& idxR)
-{
-  bool pflag = true, nflag = true;
-
-  auto tmp = Eigen::Vector3d(x_, y_, z_);
-  idx = (tmp + offset_).cast<int>();
-
-  if (x_ == interX_ && y_ == interY_ && z_ == interZ_)
-    pflag = false;
-
-  if (pflag == true) {
-    if (tMaxXp < tMaxYp) {
-      if (tMaxXp < tMaxZp) {
-        x_ += stepXp;
-        tMaxXp += tDeltaXp;
-      }
-      else {
-        z_ += stepZp;
-        tMaxZp += tDeltaZp;
-      }
-    }
-    else {
-      if (tMaxYp < tMaxZp) {
-        y_ += stepYp;
-        tMaxYp += tDeltaYp;
-      }
-      else {
-        z_ += stepZp;
-        tMaxZp += tDeltaZp;
-      }
-    }
-  }
-
-  auto tmpR = Eigen::Vector3d(endX_, endY_, endZ_);
-  idxR = (tmpR + offset_).cast<int>();
-
-  if (endX_ == interX_ && endY_ == interY_ && endZ_ == interZ_)
-    nflag = false;
-
-  if (nflag == true) {
-    if (tMaxXn < tMaxYn) {
-      if (tMaxXn < tMaxZn) {
-        endX_ += stepXn;
-        tMaxXn += tDeltaXn;
-      }
-      else {
-        endZ_ += stepZn;
-        tMaxZn += tDeltaZn;
-      }
-    }
-    else {
-      if (tMaxYn < tMaxZn) {
-        endY_ += stepYn;
-        tMaxYn += tDeltaYn;
-      }
-      else {
-        endZ_ += stepZn;
-        tMaxZn += tDeltaZn;
-      }
-    }
-  }
-
-  if (pflag == false && nflag == false)
-    return false;
-  else
-    return true;
 }
 
 bool RayCaster::nextPos(Eigen::Vector3d& pos)

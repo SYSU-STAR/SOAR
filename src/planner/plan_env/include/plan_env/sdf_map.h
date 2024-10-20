@@ -154,7 +154,9 @@ struct MapData {
 
 inline void SDFMap::posToIndex(const Eigen::Vector3d& pos, Eigen::Vector3i& id)
 {
-  for (int i = 0; i < 3; ++i) id(i) = floor((pos(i) - mp_->map_origin_(i)) * mp_->resolution_inv_);
+  double eps = 1e-6;
+  for (int i = 0; i < 3; ++i)
+    id(i) = floor((pos(i) - mp_->map_origin_(i) + eps) * mp_->resolution_inv_);
 }
 
 inline void SDFMap::indexToPos(const Eigen::Vector3i& id, Eigen::Vector3d& pos)

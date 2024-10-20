@@ -255,7 +255,8 @@ std::vector<Eigen::Vector3d> Astar::getVisited()
 
 void Astar::posToIndex(const Eigen::Vector3d& pt, Eigen::Vector3i& idx)
 {
-  idx = ((pt - origin_) * inv_resolution_).array().floor().cast<int>();
+  Eigen::Vector3d eps = Eigen::Vector3d::Constant(1e-6);
+  idx = ((pt - origin_) * inv_resolution_ + eps).array().floor().cast<int>();
 }
 
 }  // namespace hetero_planner
