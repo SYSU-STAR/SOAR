@@ -48,11 +48,9 @@
 
 **[IROS'24]** This repository maintains the implementation of "SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction".
 
+There is a special demo for IROS2024.
 <p align="center">
-  <img src="assets/videos/pisa.gif" width = 60% height = 60%/>
-</p>
-<p align="center">
-  <img src="assets/videos/sydney.gif" width = 60% height = 60%/>
+  <img src="assets/videos/iros_demo.gif" width = 80% height = 80%/>
 </p>
 
 If you find this work useful in your research, please consider citing:
@@ -109,11 +107,19 @@ source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
 source devel/setup.bash && roslaunch heterogeneous_manager pisa.launch
 ```
 
+<p align="center">
+  <img src="assets/videos/pisa.gif" width = 60% height = 60%/>
+</p>
+
 __Sydney Opera House__
 ```shell
 source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
 source devel/setup.bash && roslaunch heterogeneous_manager sydney.launch
 ```
+
+<p align="center">
+  <img src="assets/videos/sydney.gif" width = 60% height = 60%/>
+</p>
 
 __NOTE__: Trigger the quadrotors to start planning with the `2D Nav Goal` when the terminal displays `wait for trigger`. All scenes are provided in `src/heterogeneous_manager/launch/XXX.launch`
 
