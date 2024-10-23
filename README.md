@@ -1,6 +1,6 @@
 <div align="center">
     <h1> 
-      <img src="assets/imgs/logo.svg" width="30" height="30" /> SOAR
+      <img src="assets/imgs/logo.svg" width="35" height="35" /> SOAR
     </h1>
     </h1>
     <h2>Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction</h2>
@@ -35,7 +35,8 @@
     </p>
     <a href="https://arxiv.org/abs/2409.02738"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-red"/></a>
     <a href='https://sysu-star.github.io/SOAR'><img src='https://img.shields.io/badge/Project_Page-SOAR-green' alt='Project Page'></a>
-    <a href="https://www.bilibili.com/video/BV1G1421Q79m/"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
+    <a href="https://www.bilibili.com/video/BV1G1421Q79m"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
+    <a href="https://www.bilibili.com/video/BV1wEyHYjEAq"><img alt="Bilibili" src="https://img.shields.io/badge/Talk-Bilibili-purple"/></a>
 </div>
 
 
@@ -63,6 +64,8 @@ If you find this work useful in your research, please consider citing:
   year={2024}
 }
 ```
+Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
+
 ## 🛠️ Installation
 
 ### Prerequisite
@@ -126,7 +129,7 @@ __NOTE__: Trigger the quadrotors to start planning with the `2D Nav Goal` when t
 If you want to use the GPU version of MARSIM, you can change the parameter "use_gpu" to `true` in `src/heterogeneous_manager/launch/XXX.launch`
 
 ```xml
-  <arg name="use_gpu" value="true" />
+<arg name="use_gpu" value="true" />
 ```
 ## 🤓 Acknowledgments
 
