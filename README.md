@@ -131,6 +131,14 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 ```xml
 <arg name="use_gpu" value="true" />
 ```
+
+## Known issues
+
+If you get the following error message,  please try to recompile this project with **catkin_make** .
+```
+fatal error: plan_env/ChunkStamps.h: No such file or directory
+```
+
 ## 🤓 Acknowledgments
 
 - [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner)
