@@ -65,3 +65,4 @@ src/planner/heterogeneous_manager/output
 src/planner/utils/lkh_mtsp_solver/LKH/LKH
 src/planner/utils/lkh_mtsp_solver/LKH/SRC/OBJ/*.o
 .catkin_workspace
+.catkin_tools
