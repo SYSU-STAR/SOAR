@@ -100,6 +100,7 @@ git clone https://github.com/SYSU-STAR/SOAR
 cd SOAR
 catkin_make
 ```
+If you have installed ***Anaconda***, please use ```catkin_make  -DPYTHON_EXECUTABLE=/usr/bin/python3```.
 
 __LKH-3.0.6__:
 ```shell
@@ -143,6 +144,7 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 - [FUEL](https://github.com/HKUST-Aerial-Robotics/FUEL)
 - [RACER](https://github.com/SYSU-STAR/RACER)
 - [GCOPTER](https://github.com/ZJU-FAST-Lab/GCOPTER)
+- [MARSIM](https://github.com/hku-mars/MARSIM)
 
 ## 🤗 FC-family Works
 
