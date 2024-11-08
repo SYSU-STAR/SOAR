@@ -113,6 +113,7 @@ private:
   bool isNeighborUnknown(const Eigen::Vector3i& voxel);
   bool isNeighborOccupied(const Eigen::Vector3i& voxel);
   bool isNeighborFree(const Eigen::Vector3i& voxel);
+  bool isInLidarFOV(const Eigen::Vector3d& vp_pos, const double& vp_yaw, const Vector3d& frt_cell);
 
   // Wrapper of sdf map
   int toadr(const Eigen::Vector3i& idx);
@@ -140,6 +141,7 @@ private:
   double min_view_finish_fraction_, resolution_;
   int min_visib_num_, candidate_rnum_, candidate_hnum_;
   bool is_lidar_;
+  double lidar_fov_up_, lidar_fov_down_, lidar_max_dist_, lidar_pitch_;
 
   // Utils
   shared_ptr<EDTEnvironment> edt_env_;

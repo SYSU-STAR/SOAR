@@ -23,6 +23,11 @@ FrontierFinder::FrontierFinder(const EDTEnvironment::Ptr& edt, ros::NodeHandle& 
   nh.param("frontier/min_view_finish_fraction", min_view_finish_fraction_, -1.0);
   nh.param("frontier/is_lidar", is_lidar_, false);  // true: explorer  false: photographer
 
+  nh.param("perception_utils/lidar_top_angle", lidar_fov_up_, -1.0);
+  nh.param("perception_utils/lidar_bottom_angle", lidar_fov_down_, -1.0);
+  nh.param("perception_utils/lidar_max_dist", lidar_max_dist_, -1.0);
+  nh.param("perception_utils/lidar_pitch", lidar_pitch_, 0.0);
+
   raycaster_.reset(new RayCaster);
   resolution_ = edt_env_->sdf_map_->getResolution();
   Eigen::Vector3d origin, size;
@@ -111,8 +116,6 @@ void FrontierFinder::searchFrontiers()
 
 void FrontierFinder::expandFrontier(const Eigen::Vector3i& first)
 {
-  auto t1 = ros::Time::now();
-
   // Data for clustering
   queue<Eigen::Vector3i> cell_queue;
   vector<Eigen::Vector3d> expanded;
@@ -469,6 +472,8 @@ void FrontierFinder::getFrontierBoxes(vector<pair<Eigen::Vector3d, Eigen::Vector
 void FrontierFinder::getPathForTour(
     const Vector3d& pos, const vector<int>& frontier_ids, vector<Vector3d>& path)
 {
+  ROS_ERROR("sdfsafds = %ld", frontier_ids.size());
+  path.clear();
   // Make an frontier_indexer to access the frontier list easier
   vector<list<Frontier>::iterator> frontier_indexer;
   for (auto it = frontiers_.begin(); it != frontiers_.end(); ++it) frontier_indexer.push_back(it);
@@ -557,8 +562,14 @@ int FrontierFinder::countVisibleFrontierCells(const Eigen::Vector3d& pos, const 
   Eigen::Vector3i idx;
   for (auto cell : cluster) {
     // Check if frontier cell is inside FOV
-    if (!percep_utils_->insideFOV(cell))
-      continue;
+    if (!isExplorer()) {
+      if (!percep_utils_->insideFOV(cell))
+        continue;
+    }
+    else {
+      if (!isInLidarFOV(pos, yaw, cell))
+        continue;
+    }
 
     // Check if frontier cell is visible (not occulded by obstacles)
     raycaster_->input(cell, pos);
@@ -620,4 +631,22 @@ bool FrontierFinder::satisfyFrontierCell(const Eigen::Vector3i& idx)
   // return false;
 }
 
+bool FrontierFinder::isInLidarFOV(
+    const Eigen::Vector3d& vp_pos, const double& vp_yaw, const Vector3d& frt_cell)
+{
+  Eigen::Isometry3d transform = Eigen::Isometry3d::Identity();
+  // transform.rotate(Eigen::AngleAxisd(-lidar_roll_, Eigen::Vector3d::UnitX()));
+  transform.rotate(Eigen::AngleAxisd(-lidar_pitch_, Eigen::Vector3d::UnitY()));
+  transform.rotate(Eigen::AngleAxisd(-vp_yaw, Eigen::Vector3d::UnitZ()));
+
+  if ((vp_pos - frt_cell).norm() > lidar_max_dist_)
+    return false;
+  Eigen::Vector3d pt2see = transform * (frt_cell - vp_pos);
+  // pitch
+  float pitch = atan2(pt2see.z(), sqrt(pt2see.x() * pt2see.x() + pt2see.y() * pt2see.y()));
+  if (pitch > lidar_fov_up_ || pitch < -lidar_fov_down_)
+    return false;
+
+  return true;
+}
 }  // namespace hetero_planner

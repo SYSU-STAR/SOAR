@@ -871,7 +871,7 @@ void renderSensedPoints(const ros::TimerEvent &event)
   // Eigen::Matrix3d rot_body2lidar = Matrix3d::Identity();
   
   //add pitchW
-  double theta = lidar_pitch * M_PI / 180.0;
+  double theta = lidar_pitch;
   Eigen::Matrix3d rot_body2lidar;
   rot_body2lidar << cos(theta), 0, sin(theta),
       0, 1, 0,

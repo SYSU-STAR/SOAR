@@ -218,6 +218,7 @@ int HeterogenousPlannerManager::planNextMotion(const Vector3d& pos, const Vector
       next_yaw = hd_->yaws_[indices[0]];
     }
     else if (hd_->points_.size() == 1) {
+      frontier_finder_->updateFrontierCostMatrix();
       hd_->global_tour_ = { pos, hd_->points_[0] };
 
       next_pos = hd_->points_[0];

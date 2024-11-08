@@ -593,7 +593,7 @@ void renderSensedPoints(const ros::TimerEvent &event)
   q.z() = odom_.pose.pose.orientation.z;
   q.w() = odom_.pose.pose.orientation.w;
   // add pitchW
-  double theta = lidar_pitch * M_PI / 180.0;
+  double theta = lidar_pitch;
   Eigen::Matrix3f rot_body2lidar;
   rot_body2lidar << cos(theta), 0, sin(theta), 0, 1, 0, -sin(theta), 0, cos(theta);
 

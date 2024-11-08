@@ -21,8 +21,8 @@ PerceptionUtils::PerceptionUtils(ros::NodeHandle& nh, int mission_type)
   nh.param("perception_utils/camera_vis_dist", camera_vis_dist_, -1.0);
 
   if (mission_type == 0) {
-    top_angle_ = lidar_top_angle_ - lidar_pitch_ * 3.1415926 / 180.0;
-    bottom_angle_ = lidar_bottom_angle_ + lidar_pitch_ * 3.1415926 / 180.0;
+    top_angle_ = lidar_top_angle_ - lidar_pitch_;
+    bottom_angle_ = lidar_bottom_angle_ + lidar_pitch_;
     left_angle_ = lidar_left_angle_;
     right_angle_ = lidar_right_angle_;
     max_dist_ = lidar_max_dist_;

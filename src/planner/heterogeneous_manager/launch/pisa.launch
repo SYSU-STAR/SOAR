@@ -10,7 +10,7 @@
   
   <arg name="drone_num" value="4" />
   <arg name="resolution" default="0.25" />
-  <arg name="lidar_pitch" value="20.0" />
+  <arg name="lidar_pitch" value="$(eval 20 * 3.1415926 / 180.0)" />
   <arg name="surface_min_update_time" value="2.0" />
   <arg name="frozen_surface_min_num" value="20" />
 
