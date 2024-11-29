@@ -42,7 +42,7 @@
 
 ## 📢 News
 
-- **[09/10/2024]**: The code of SOAR is release. 
+- **[09/10/2024]**: The code of SOAR is released. 
 - **[30/06/2024]**: SOAR is accepted to IROS 2024 and selected as **oral presentation** (acceptance rate: 10%). 
 
 ## 📜 Introduction
