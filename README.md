@@ -62,11 +62,12 @@ And we also provide a special demo for IROS2024.
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{zhang2024soar,
-  title={SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction},
+@INPROCEEDINGS{zhang2024soar,
   author={Zhang, Mingjie and Feng, Chen and Li, Zengzhi and Zheng, Guiyong and Luo, Yiming and Wang, Zhu and Zhou, Jinni and Shen, Shaojie and Zhou, Boyu},
-  journal={arXiv preprint arXiv:2409.02738},
-  year={2024}
+  booktitle={2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction}, 
+  year={2024},
+  pages={10975-10982}
 }
 ```
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
