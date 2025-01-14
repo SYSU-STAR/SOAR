@@ -33,10 +33,11 @@
         <sup>*</sup>Equal Contribution &nbsp;&nbsp;
         <sup>†</sup>Corresponding Authors
     </p>
+    <a href="https://ieeexplore.ieee.org/abstract/document/10801474"><img alt="Paper" src="https://img.shields.io/badge/Paper-IEEE-blue"/></a>
     <a href="https://arxiv.org/abs/2409.02738"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-red"/></a>
     <a href='https://sysu-star.github.io/SOAR'><img src='https://img.shields.io/badge/Project_Page-SOAR-green' alt='Project Page'></a>
-    <a href="https://www.bilibili.com/video/BV1G1421Q79m"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/></a>
-    <a href="https://www.bilibili.com/video/BV1wEyHYjEAq"><img alt="Bilibili" src="https://img.shields.io/badge/Talk-Bilibili-purple"/></a>
+    <a href="https://www.bilibili.com/video/BV1G1421Q79m"><img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-purple"/></a>
+    <a href="https://www.bilibili.com/video/BV1wEyHYjEAq"><img alt="Bilibili" src="https://img.shields.io/badge/Talk-Bilibili-pink"/></a>
 </div>
 
 
@@ -62,12 +63,13 @@ And we also provide a special demo for IROS2024.
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@INPROCEEDINGS{zhang2024soar,
+@inproceedings{zhang2024soar,
+  title={SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction},
   author={Zhang, Mingjie and Feng, Chen and Li, Zengzhi and Zheng, Guiyong and Luo, Yiming and Wang, Zhu and Zhou, Jinni and Shen, Shaojie and Zhou, Boyu},
-  booktitle={2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
-  title={SOAR: Simultaneous Exploration and Photographing with Heterogeneous UAVs for Fast Autonomous Reconstruction}, 
+  booktitle={2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={10975--10982},
   year={2024},
-  pages={10975-10982}
+  organization={IEEE}
 }
 ```
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
