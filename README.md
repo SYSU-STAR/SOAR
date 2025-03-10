@@ -143,11 +143,11 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 
 ## 🤓 Acknowledgments
 
-- [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner)
-- [FUEL](https://github.com/HKUST-Aerial-Robotics/FUEL)
-- [RACER](https://github.com/SYSU-STAR/RACER)
-- [GCOPTER](https://github.com/ZJU-FAST-Lab/GCOPTER)
-- [MARSIM](https://github.com/hku-mars/MARSIM)
+- [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner): An Efficient Global Planner for Aerial Coverage.
+- [FUEL](https://github.com/HKUST-Aerial-Robotics/FUEL): An Efficient Framework for Fast UAV Exploration.
+- [RACER](https://github.com/SYSU-STAR/RACER): A Rapid Exploration Framework for Multiple UAVs.
+- [GCOPTER](https://github.com/ZJU-FAST-Lab/GCOPTER): A General-Purpose Trajectory Optimizer for Multicopters.
+- [MARSIM](https://github.com/hku-mars/MARSIM): A Light-weight Point-realistic Simulator for LiDAR-based UAVs.
 
 ## 🤗 FC-family Works
 
