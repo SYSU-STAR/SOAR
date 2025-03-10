@@ -472,7 +472,6 @@ void FrontierFinder::getFrontierBoxes(vector<pair<Eigen::Vector3d, Eigen::Vector
 void FrontierFinder::getPathForTour(
     const Vector3d& pos, const vector<int>& frontier_ids, vector<Vector3d>& path)
 {
-  ROS_ERROR("sdfsafds = %ld", frontier_ids.size());
   path.clear();
   // Make an frontier_indexer to access the frontier list easier
   vector<list<Frontier>::iterator> frontier_indexer;
