@@ -8,12 +8,15 @@
 
   <arg name="map_name" value="sydney" />
   
+  <!-- The total number of explorer and photographers -->
   <arg name="drone_num" value="4" />
+
   <arg name="resolution" default="0.25" />
   <arg name="lidar_pitch" value="$(eval 20 * 3.1415926 / 180.0)" />
   <arg name="surface_min_update_time" value="2.0" />
   <arg name="frozen_surface_min_num" value="20" />
 
+  <!-- Explorer -->
   <group ns="quad_0">
     <include file="$(find heterogeneous_manager)/launch/single_lidar_uav_exploration.xml">
       <arg name="drone_id" value="0" />
@@ -26,11 +29,11 @@
       <arg name="map_size_y" value="$(arg map_size_y)" />
       <arg name="map_size_z" value="$(arg map_size_z)" />
 
-      <arg if="$(eval map_name=='sydney')" name="map_add_boundary" value="1" />
-      <arg if="$(eval map_name=='sydney')" name="init_x" value="-18.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_y" value="6.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_z" value="3.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_yaw" value="0.0" />
+      <arg name="map_add_boundary" value="1" />
+      <arg name="init_x" value="-18.0" />
+      <arg name="init_y" value="6.0" />
+      <arg name="init_z" value="3.0" />
+      <arg name="init_yaw" value="0.0" />
 
       <arg name="max_vel" value="2.5" />
       <arg name="max_acc" value="2.5" />
@@ -43,6 +46,7 @@
     </include>
   </group>
 
+  <!-- Photographer1 -->
   <group ns="quad_1">
     <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
       <arg name="drone_id" value="1" />
@@ -53,10 +57,10 @@
       <arg name="map_size_y" value="$(arg map_size_y)" />
       <arg name="map_size_z" value="$(arg map_size_z)" />
 
-      <arg if="$(eval map_name=='sydney')" name="init_x" value="-14.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_y" value="-2.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_z" value="2.5" />
-      <arg if="$(eval map_name=='sydney')" name="init_yaw" value="0.0" />
+      <arg name="init_x" value="-14.0" />
+      <arg name="init_y" value="-2.0" />
+      <arg name="init_z" value="2.5" />
+      <arg name="init_yaw" value="0.0" />
 
       <arg name="max_vel" value="1.0" />
       <arg name="max_acc" value="1.0" />
@@ -66,6 +70,7 @@
     </include>
   </group>
 
+  <!-- Photographer2 -->
   <group ns="quad_2">
     <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
       <arg name="drone_id" value="2" />
@@ -76,10 +81,10 @@
       <arg name="map_size_y" value="$(arg map_size_y)" />
       <arg name="map_size_z" value="$(arg map_size_z)" />
 
-      <arg if="$(eval map_name=='sydney')" name="init_x" value="-14.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_y" value="3.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_z" value="2.5" />
-      <arg if="$(eval map_name=='sydney')" name="init_yaw" value="0.0" />
+      <arg name="init_x" value="-14.0" />
+      <arg name="init_y" value="3.0" />
+      <arg name="init_z" value="2.5" />
+      <arg name="init_yaw" value="0.0" />
 
       <arg name="max_vel" value="1.0" />
       <arg name="max_acc" value="1.0" />
@@ -89,6 +94,7 @@
     </include>
   </group>
 
+  <!-- Photographer3 -->
   <group ns="quad_3">
     <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
       <arg name="drone_id" value="3" />
@@ -99,10 +105,10 @@
       <arg name="map_size_y" value="$(arg map_size_y)" />
       <arg name="map_size_z" value="$(arg map_size_z)" />
 
-      <arg if="$(eval map_name=='sydney')" name="init_x" value="-14.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_y" value="8.0" />
-      <arg if="$(eval map_name=='sydney')" name="init_z" value="2.5" />
-      <arg if="$(eval map_name=='sydney')" name="init_yaw" value="0.0" />
+      <arg name="init_x" value="-14.0" />
+      <arg name="init_y" value="8.0" />
+      <arg name="init_z" value="2.5" />
+      <arg name="init_yaw" value="0.0" />
 
       <arg name="max_vel" value="1.0" />
       <arg name="max_acc" value="1.0" />

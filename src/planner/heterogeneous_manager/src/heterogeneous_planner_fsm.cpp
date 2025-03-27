@@ -182,6 +182,12 @@ void HeterogeneousPlannerFSM::FSMCallback(const ros::TimerEvent& e)
           ROS_WARN("drone_%d replan: frontier cluster covered================", getSlfDroneId());
           return;
         }
+        // Replan after some time
+        if (t_cur > fp_->replan_thresh3_) {
+          transitState(PLAN_TRAJ, "FSM");
+          ROS_WARN("drone_%d replan: periodic call============================", getSlfDroneId());
+          return;
+        }
         break;
       }
     }
@@ -272,6 +278,9 @@ void HeterogeneousPlannerFSM::FSMCallback(const ros::TimerEvent& e)
           ROS_WARN("drone_%d plan fail", getSlfDroneId());
           fd_->static_state_ = true;
         }
+        else {
+          fd_->static_state_ = true;
+        }
         break;
       }
 
@@ -306,6 +315,7 @@ void HeterogeneousPlannerFSM::FSMCallback(const ros::TimerEvent& e)
         if (t_cur > fp_->replan_thresh3_) {
           transitState(PLAN_TRAJ, "FSM");
           ROS_WARN("drone_%d replan: periodic call============================", getSlfDroneId());
+          return;
         }
         break;
       }

@@ -112,9 +112,8 @@
     <param name="map_ros/frame_id" value="world"/>
 
     <!-- Fsm -->
-    <param name="fsm/thresh_replan1" value="0.20" type="double"/>
-    <param name="fsm/thresh_replan2" value="0.20" type="double"/>
-    <param name="fsm/thresh_replan3" value="0.80" type="double"/>
+    <param name="fsm/thresh_replan1" value="0.5" type="double"/>
+    <param name="fsm/thresh_replan3" value="1.0" type="double"/>
     <param name="fsm/replan_time" value="0.200" type="double"/>
 
     <!-- Exploration manager -->

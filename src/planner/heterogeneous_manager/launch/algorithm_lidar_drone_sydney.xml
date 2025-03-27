@@ -116,8 +116,9 @@
 
     <!-- Fsm -->
     <param name="fsm/thresh_replan1" value="0.5" type="double"/>
-    <param name="fsm/thresh_replan2" value="2.0" type="double"/>
-    <param name="fsm/replan_time" value="0.25" type="double"/>
+    <param name="fsm/thresh_replan2" value="1.0" type="double"/>
+    <param name="fsm/thresh_replan3" value="3.0" type="double"/>
+    <param name="fsm/replan_time" value="0.35" type="double"/>
 
     <!-- Exploration manager -->
     <param name="exploration/vm" value="$(eval 1.0 * arg('max_vel'))" type="double"/>
