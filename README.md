@@ -141,6 +141,79 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 <arg name="use_gpu" value="true" />
 ```
 
+**Adjusting the Number of Photographers**
+
+> The current version temporarily only supports a single explorer.
+
+You can modify the `pisa.launch` or `sydney.launch` file as follows:
+
+```xml
+  <!-- _NUM_ is the total number of explorer and photographers -->
+  <arg name="drone_num" value="_NUM_" />
+
+  ... ...
+
+  <!-- Explorer -->
+  <group ns="quad_0">
+    <include file="$(find heterogeneous_manager)/launch/single_lidar_uav_exploration.xml">
+      <arg name="drone_id" value="0" />
+
+      ... ...
+
+      <!-- Adjust to the appropriate initial position. -->
+      <arg name="init_x" value="" />
+      <arg name="init_y" value="" />
+      <arg name="init_z" value="" />
+      <arg name="init_yaw" value="" />
+      
+      ... ...
+
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <!-- Photographer1 -->
+  <group ns="quad_1">
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
+      <arg name="drone_id" value="1" />
+
+      ... ...
+
+      <!-- Adjust to the appropriate initial position. -->
+      <arg name="init_x" value="" />
+      <arg name="init_y" value="" />
+      <arg name="init_z" value="" />
+      <arg name="init_yaw" value="" />
+      
+      ... ...
+
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+
+  <!-- Other photographers' groups -->
+  ... ...
+
+  <!-- PhotographerX (X = _NUM_-1) -->
+  <group ns="quad_X">
+    <include file="$(find heterogeneous_manager)/launch/single_camera_uav_exploration.xml">
+      <arg name="drone_id" value="X" />
+      
+      ... ...
+
+      <!-- Adjust to the appropriate initial position. -->
+      <arg name="init_x" value="" />
+      <arg name="init_y" value="" />
+      <arg name="init_z" value="" />
+      <arg name="init_yaw" value="" />
+
+      ... ...
+
+      <arg name="resolution" value="$(arg resolution)" />
+    </include>
+  </group>
+```
+
 ## 🤓 Acknowledgments
 
 - [FC-Planner](https://github.com/HKUST-Aerial-Robotics/FC-Planner): An Efficient Global Planner for Aerial Coverage.
