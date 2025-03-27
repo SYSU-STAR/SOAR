@@ -113,7 +113,7 @@ make
 
 ## 🚀 Quick Start
 
-__Pisa Cathedral__
+### __Pisa Cathedral__
 ```shell
 source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
 source devel/setup.bash && roslaunch heterogeneous_manager pisa.launch
@@ -123,7 +123,7 @@ source devel/setup.bash && roslaunch heterogeneous_manager pisa.launch
   <img src="assets/videos/pisa.gif" width = 60% height = 60%/>
 </p>
 
-__Sydney Opera House__
+### __Sydney Opera House__
 ```shell
 source devel/setup.bash && roslaunch heterogeneous_manager rviz.launch
 source devel/setup.bash && roslaunch heterogeneous_manager sydney.launch
@@ -133,7 +133,8 @@ source devel/setup.bash && roslaunch heterogeneous_manager sydney.launch
   <img src="assets/videos/sydney.gif" width = 60% height = 60%/>
 </p>
 
-__NOTE__: Trigger the quadrotors to start planning with the `2D Nav Goal` when the terminal displays `wait for trigger`. All scenes are provided in `src/heterogeneous_manager/launch/XXX.launch`
+### __NOTE__ 
+Trigger the quadrotors to start planning with the `2D Nav Goal` when the terminal displays `wait for trigger`. All scenes are provided in `src/heterogeneous_manager/launch/XXX.launch`
 
 If you want to use the GPU version of MARSIM, you can change the parameter "use_gpu" to `true` in `src/heterogeneous_manager/launch/XXX.launch`
 
@@ -141,7 +142,7 @@ If you want to use the GPU version of MARSIM, you can change the parameter "use_
 <arg name="use_gpu" value="true" />
 ```
 
-**Adjusting the Number of Photographers**
+### **Adjusting the Number of Photographers**
 
 > The current version temporarily only supports a single explorer.
 
