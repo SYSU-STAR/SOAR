@@ -108,7 +108,7 @@ If you have installed ***Anaconda***, please use ```catkin_make  -DPYTHON_EXECUT
 __LKH-3.0.6__:
 ```shell
 cd src/planner/utils/lkh_mtsp_solver/LKH
-make
+make -j
 ```
 
 ## 🚀 Quick Start
